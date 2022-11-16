@@ -41,7 +41,7 @@ export function WaitlistForm() {
 
             {users.map((newUsers) => {
                 return (
-                    <div>
+                    <div key={newUsers.id}>
                         <p> emails: {newUsers.mail}</p>
                         <p>UserNames: {newUsers.name}</p>
 
