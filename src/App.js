@@ -8,13 +8,10 @@ import { LoginForm } from './login';
 function App() {
   return (
     <div className="App">
-      <UserProvider>
-        <WaitlistForm />
-        <LoginForm />
-        <Routes>
-          <Route path='homepage' element={<HomePage />} />
-        </Routes>
-      </UserProvider>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='homepage' element={<HomePage />} />
+      </Routes>
     </div>
   );
 }
