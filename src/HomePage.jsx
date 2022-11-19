@@ -1,7 +1,13 @@
-export default function HomePage(){
-    return(
+import { UserProvider } from "./Helpers/ContextProvider";
+import { WaitlistForm } from "./Form";
+import { LoginForm } from "./login";
+export default function HomePage() {
+    return (
         <div className="homePage">
-            <h2>bro I congratulate you on being able to land this page</h2>
+            <UserProvider>
+                <WaitlistForm />
+                <LoginForm />
+            </UserProvider>
         </div>
     )
 }
