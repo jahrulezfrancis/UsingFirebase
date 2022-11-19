@@ -1,5 +1,4 @@
 import { useContext, useState } from "react"
-import { Navigate } from "react-router-dom"
 import { UserContext } from "./Helpers/ContextProvider"
 
 
@@ -11,26 +10,30 @@ export function LoginForm() {
     const [userName, setUserName] = useState('')
 
     function CredientialCheck() {
-        if (email === users.mail && userName === users.name) {
-            Navigate("/homepage")
-        } else {
-            alert('your username and email is not correct')
-        }
+        users.map((user) => {
+            (email === user.mail && userName === user.name) ? alert('yeah boy this is right') : alert('not at all please try again');
+            return(
+                <h1>This is not really good</h1>
+            )
+        })
     }
 
     function setMail(e) {
         setEmail(e.target.value)
+        e.preventDefault()
     }
 
     function setName(e) {
-        setName(e.target.value)
+        setUserName(e.target.value)
+        e.preventDefault()
     }
 
     return (
         <>
             <div className="loginForm">
-                <input type="email" placeholder="please enter your email" onChange={setMail} />
-                <input type="text" placeholder="please enter your username" onChange={setName} />
+                <input type="email" value={email} placeholder="please enter your email" onChange={setMail} />
+                <input type="text" value={userName} placeholder="please enter your username" onChange={setName} />
+                <button onClick={CredientialCheck}>Login</button>
             </div>
         </>
     )
