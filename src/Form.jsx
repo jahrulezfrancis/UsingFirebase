@@ -14,13 +14,12 @@ export function WaitlistForm() {
     const UserCollectionRef = collection(db, "users")
 
     useEffect(() => {
-
         const GetUsers = async () => {
             const data = await getDocs(UserCollectionRef);
             setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         GetUsers()
-    }, []);
+    },);
 
     const CreateUser = async () => {
         await addDoc(UserCollectionRef, { name: newName, mail: email })
@@ -42,7 +41,7 @@ export function WaitlistForm() {
             {users.map((newUsers) => {
                 return (
                     <div key={newUsers.id}>
-                        <p> emails: {newUsers.mail}</p>
+                        <p>emails: {newUsers.mail}</p>
                         <p>UserNames: {newUsers.name}</p>
 
                     </div>
